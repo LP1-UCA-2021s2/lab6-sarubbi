@@ -21,8 +21,8 @@ int esPalindromo(char* cadena)
 	//recorre el texto
 	for(int i=0;i<l;i++)
 	{
-	    printf ("%d",letra);
-		letra=cadena[i];
+	   if (&cadena[i]!=" "){
+		letra=&cadena[i];
 		//es mayuscula
 		if(letra<90 && 65<letra)
 		{
@@ -58,7 +58,7 @@ int esPalindromo(char* cadena)
 			return 0;
 		}
 		}
-
+}
 
 	}
     printf("%d",letra);
