@@ -1,0 +1,94 @@
+/*
+ ============================================================================
+ Name        : palidromo.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define diferencia 32//la diferencia en ascii entre mayuscula y minuscula
+
+int esPalindromo(char* cadena)
+{
+	int l=strlen(cadena), letra=0;
+
+	//cambiar los acentos y mayusculas por letras minusculas no acentuadas
+	//recorre el texto
+	for(int i=0;i<l;i++)
+	{
+	    printf ("%d",letra);
+		letra=cadena[i];
+		//es mayuscula
+		if(letra<90 && 65<letra)
+		{
+			letra=letra+diferencia;
+
+		}
+		if (letra==165)
+		{
+		    letra=letra-1;
+
+		}
+		//todos son mayuscula, solo las vocales llevan acento,
+		switch (letra){
+		case 160:
+		    letra=97;
+		    break;
+		case 130:
+		    letra=101;
+		    break;
+		case 161:
+		    letra=105;
+		    break;
+		case  162:
+		    letra=111;
+		    break;
+		case 163:
+		    letra=117;
+		    break;
+		//todo esta en minuscula sin acentos
+
+		if(cadena[l-i]!=letra)
+		{
+			return 0;
+		}
+		}
+
+
+	}
+    printf("%d",letra);
+	//para acentos solo
+		//ver si son iguales tras remover los espacios
+
+	return 1;
+}
+
+
+
+int main(void) {
+	char* cadena;
+	int x;
+	//introduce el texto
+	printf("introduzca el texto:  ");
+	scanf("%s",cadena);
+
+	x=esPalindromo(cadena);
+	if (x==1)
+	{
+		printf("1, es palindromo");
+		return 1;
+	}
+	if (x==0)
+	{
+		printf("0, no es palindromo");
+		return 0;
+	}
+
+	;
+}
+
