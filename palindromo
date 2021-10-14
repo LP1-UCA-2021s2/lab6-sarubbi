@@ -21,8 +21,8 @@ int esPalindromo(char* cadena)
 	//recorre el texto
 	for(int i=0;i<l;i++)
 	{
-	   if (&cadena[i]!=" "){
-		letra=&cadena[i];
+	    printf ("%d",letra);
+		letra=cadena[i];
 		//es mayuscula
 		if(letra<90 && 65<letra)
 		{
@@ -58,7 +58,7 @@ int esPalindromo(char* cadena)
 			return 0;
 		}
 		}
-}
+
 
 	}
     printf("%d",letra);
@@ -72,23 +72,33 @@ int esPalindromo(char* cadena)
 
 int main(void) {
 	char* cadena;
-	int x;
+	char* *chain;
+	int x,numero,j=0;
 	//introduce el texto
-	printf("introduzca el texto:  ");
-	scanf("%s",cadena);
+	printf("cuantas frases incluira?");
+	scanf("%d",&numero);
+	while(0<numero)
+	{
+		numero--;
+		j++;
+		printf("introduzca el texto:  ");
+		scanf("%s",cadena);
+		chain[j]=cadena;
+	}
+	for(;j>0;j--){
 
-	x=esPalindromo(cadena);
+	x=esPalindromo(chain[j]);
 	if (x==1)
 	{
-		printf("1, es palindromo");
+		printf("%s",chain[j]" es palindromo");
 		return 1;
 	}
 	if (x==0)
 	{
-		printf("0, no es palindromo");
+		printf("%s",chain[j]" no es palindromo");
 		return 0;
 	}
-
+}
 	;
 }
 
